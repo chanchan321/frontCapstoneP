@@ -33,7 +33,7 @@ export default function Pis({close}) {
   
     const getPisContent = async (ress)=>{
       try{
-          const response= await Axios.get(`http://localhost:3500/pis/${id}`)
+          const response= await Axios.get(`https://back-end1c.onrender.com/pis/${id}`)
           if(response.data === '404 Not Found') { 
               Swal.fire({
                 icon: 'error',
