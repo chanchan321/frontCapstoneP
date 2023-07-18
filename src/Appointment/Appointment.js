@@ -57,7 +57,7 @@ export default function Appointment() {
       
         const getAppointmentReq = async (ress) =>{
             try{
-                const response= await Axios.get(`http://localhost:3500/appointment/${cUser.LRN}`)
+                const response= await Axios.get(`https://back-end1c.onrender.com/appointment/${cUser.LRN}`)
 
                   if(!response)
                   return Swal.fire({
@@ -128,7 +128,7 @@ export default function Appointment() {
                 if (result.isConfirmed) {
                   setloading(true)
                     try{
-                        const response= await Axios.patch(`http://localhost:3500/appointment`,
+                        const response= await Axios.patch(`https://back-end1c.onrender.com/appointment`,
                         {
                           content:appointmentDetails,
                           date:'value.dateStr',
@@ -137,7 +137,7 @@ export default function Appointment() {
                         })
 
                             try{
-                              const response= await Axios.post(`http://localhost:3500/notification`,{
+                              const response= await Axios.post(`https://back-end1c.onrender.com/notification`,{
                                   type:'Counseling',
                                   message:`A student w/ ${appointmentDetails.studLrn} LRN canceled his/her appointment`,
                                   status:'unread'
@@ -178,7 +178,7 @@ export default function Appointment() {
             if (result.isConfirmed) {
               setloading(true)
                 try{
-                    const response= await Axios.post(`http://localhost:3500/getEvents`,
+                    const response= await Axios.post(`https://back-end1c.onrender.com/getEvents`,
                     {
                       content:appointmentDetails,
                       date:appointmentDetails.reschedDate,
@@ -208,7 +208,7 @@ export default function Appointment() {
             // }).then( async (result) => {
             //   if (result.isConfirmed) {
             //       try{
-            //           const response= await Axios.delete(`http://localhost:3500/appointment/${appointmentDetails.requestID}`)
+            //           const response= await Axios.delete(`https://back-end1c.onrender.com/appointment/${appointmentDetails.requestID}`)
             //           getAppointmentReq()
             //           setresponse(false)
             //              Swal.fire({
@@ -237,7 +237,7 @@ export default function Appointment() {
               setloading(true)
               if (result.isConfirmed) {
                   try{
-                      const response= await Axios.patch(`http://localhost:3500/appointment`,
+                      const response= await Axios.patch(`https://back-end1c.onrender.com/appointment`,
                       {
                         content:appointmentDetails,
                         date:'value.dateStr',
@@ -245,7 +245,7 @@ export default function Appointment() {
                         message:'message'
                       })
                               try{
-                                const response= await Axios.post(`http://localhost:3500/notification`,{
+                                const response= await Axios.post(`https://back-end1c.onrender.com/notification`,{
                                     type:'Counseling',
                                     message:`A student w/ ${appointmentDetails.studLrn} LRN canceled his/her appointment`,
                                     status:'unread'
