@@ -150,7 +150,7 @@ export default function AccountModal({close}) {
 
     const getStudAccD = async (ress)=>{
           try{
-              const response= await Axios.get(`http://localhost:3500/getstudAccDetails/${id}`)
+              const response= await Axios.get(`https://back-end1c.onrender.com/getstudAccDetails/${id}`)
               setstudAcc(response.data[0])
 
               setcontactnumber(response.data[0].contactNumber)
@@ -226,7 +226,7 @@ export default function AccountModal({close}) {
       }
       setloading(true)
         try{
-            const response= await Axios.patch(`http://localhost:3500/getstudAccDetails`,{
+            const response= await Axios.patch(`https://back-end1c.onrender.com/getstudAccDetails`,{
               accID:id,
               lrn:studAcc.LRN,
               contactNumber:contactnumber,
@@ -269,7 +269,7 @@ export default function AccountModal({close}) {
       setloading(true)
 
       try{
-        const response= await Axios.patch(`http://localhost:3500/getstudAccDetails`,{
+        const response= await Axios.patch(`https://back-end1c.onrender.com/getstudAccDetails`,{
           accID:id,
           bycrptOldpas :currpassword,
           oldpassword:oldpassword,
