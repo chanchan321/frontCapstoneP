@@ -149,7 +149,7 @@ export default function StudeAddAppointment({haverequest,refresh,appointmentD,lo
     const getEventss = async () =>{
       
             try{
-              const response= await Axios.get(`http://localhost:3500/getAllEvents`)
+              const response= await Axios.get(`https://back-end1c.onrender.com/getAllEvents`)
             
               const futureEvents = (response.data.filter((event)=> event.setDate > `${yyyy}-${mm}-${dd}` ) )
             
@@ -169,7 +169,7 @@ export default function StudeAddAppointment({haverequest,refresh,appointmentD,lo
 
         const getLongEventss = async () =>{
           try{
-            const response= await Axios.get(`http://localhost:3500/longEvents`)
+            const response= await Axios.get(`https://back-end1c.onrender.com/longEvents`)
             
              setselected((response.data).map((item)=> {
               return {
@@ -285,7 +285,7 @@ export default function StudeAddAppointment({haverequest,refresh,appointmentD,lo
                     const yearMdayFormatClick = selectInfo.dateStr
                     load(true)
                     try{
-                          const response= await Axios.get(`http://localhost:3500/availableCal/${yearMdayFormatClick}`)
+                          const response= await Axios.get(`https://back-end1c.onrender.com/availableCal/${yearMdayFormatClick}`)
 
                             const timeTochoosedb = ['9am-10am','10am-11am','2pm-3pm','3pm-4pm','4pm-5pm']
                          
@@ -359,14 +359,14 @@ export default function StudeAddAppointment({haverequest,refresh,appointmentD,lo
               if (result.isConfirmed) {
                 load(true)
                   try{
-                      const response= await Axios.post(`http://localhost:3500/appointment`,
+                      const response= await Axios.post(`https://back-end1c.onrender.com/appointment`,
                       {
                         content:toDB,
                         lrn:cUser.LRN
                       })
 
                           try{
-                            const response= await Axios.post(`http://localhost:3500/notification`,{
+                            const response= await Axios.post(`https://back-end1c.onrender.com/notification`,{
                                 type:'Counseling',
                                 message:`A student w/ ${cUser.LRN} LRN Request an Appointment on ${dateRequestednotif}`,
                                 status:'unread'
