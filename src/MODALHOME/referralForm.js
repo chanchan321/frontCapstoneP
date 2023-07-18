@@ -82,12 +82,12 @@ export default function ReferralForm({close}) {
                 }).then(async (result) => {
                   if (result.isConfirmed) {
                     try{
-                      const response= await Axios.post(`http://localhost:3500/referral`,{
+                      const response= await Axios.post(`https://back-end1c.onrender.com/referral`,{
                         content:sendRequest
                       })
 
                       try{
-                        const response= await Axios.post(`http://localhost:3500/notification`,{
+                        const response= await Axios.post(`https://back-end1c.onrender.com/notification`,{
                             type:'Counseling',
                             message:`Teacher ${sendRequest.referredBy} make a referral request`,
                             status:'unread'
@@ -174,7 +174,7 @@ export default function ReferralForm({close}) {
               const [tofilter,settofilter]= useState([])
               const getPisContent = async ()=>{
                 try{
-                    const response= await Axios.get(`http://localhost:3500/getStud`)
+                    const response= await Axios.get(`https://back-end1c.onrender.com/getStud`)
                         if(!response.data) return alert('ERROR')
                         setStudents(response.data)
                         settofilter(response.data)
