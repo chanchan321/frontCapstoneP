@@ -33,7 +33,7 @@ export default function Register() {
         })}else{
 
         try{
-          const response= await Axios.post(`http://localhost:3500/register`,
+          const response= await Axios.post(`https://back-end1c.onrender.com/register`,
           {
             type:type,
             user:user,
