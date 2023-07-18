@@ -55,7 +55,7 @@ export default function Pis3Educational({next,refresh,load}) {
           }).then( async (result) => {
             if (result.isConfirmed) {
                 try{
-                    const response= await Axios.patch(`http://localhost:3500/pis`,
+                    const response= await Axios.patch(`https://back-end1c.onrender.com/pis`,
                     {
                       pisID:pisID,
                       content:updatededuBG,
@@ -111,7 +111,7 @@ export default function Pis3Educational({next,refresh,load}) {
     const updateEduc2 = async (show) =>{
       load(true)
                 try{
-                    const response= await Axios.patch(`http://localhost:3500/pis`,
+                    const response= await Axios.patch(`https://back-end1c.onrender.com/pis`,
                     {
                       pisID:pisID,
                       content:toDB,
